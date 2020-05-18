@@ -1,0 +1,9 @@
+C:\Users\juanp\source\repos\GraficacionU4\GraficacionU4\bin\Debug\GraficacionU4.exe.config
+C:\Users\juanp\source\repos\GraficacionU4\GraficacionU4\bin\Debug\GraficacionU4.exe
+C:\Users\juanp\source\repos\GraficacionU4\GraficacionU4\bin\Debug\GraficacionU4.pdb
+C:\Users\juanp\source\repos\GraficacionU4\GraficacionU4\obj\Debug\GraficacionU4.csprojAssemblyReference.cache
+C:\Users\juanp\source\repos\GraficacionU4\GraficacionU4\obj\Debug\GraficacionU4.Properties.Resources.resources
+C:\Users\juanp\source\repos\GraficacionU4\GraficacionU4\obj\Debug\GraficacionU4.csproj.GenerateResource.cache
+C:\Users\juanp\source\repos\GraficacionU4\GraficacionU4\obj\Debug\GraficacionU4.exe
+C:\Users\juanp\source\repos\GraficacionU4\GraficacionU4\obj\Debug\GraficacionU4.pdb
+C:\Users\juanp\source\repos\GraficacionU4\GraficacionU4\obj\Debug\GraficacionU4.frmPrincipal.resources
