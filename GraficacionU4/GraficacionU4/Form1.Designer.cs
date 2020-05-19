@@ -29,17 +29,13 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chrPanelGrafico = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.nudSeries = new System.Windows.Forms.NumericUpDown();
             this.lblNumSeries = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxDimensiones = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbxTipoGrafica = new System.Windows.Forms.ComboBox();
             this.btnGraficar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chrPanelGrafico)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSeries)).BeginInit();
@@ -50,30 +46,19 @@
             this.chrPanelGrafico.BackColor = System.Drawing.Color.Gray;
             this.chrPanelGrafico.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.VerticalCenter;
             this.chrPanelGrafico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.chrPanelGrafico.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.chrPanelGrafico.BackImageTransparentColor = System.Drawing.Color.Transparent;
+            this.chrPanelGrafico.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.chrPanelGrafico.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             chartArea1.Name = "ChartArea1";
             this.chrPanelGrafico.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chrPanelGrafico.Legends.Add(legend1);
-            this.chrPanelGrafico.Location = new System.Drawing.Point(12, 12);
+            this.chrPanelGrafico.Dock = System.Windows.Forms.DockStyle.Left;
+            this.chrPanelGrafico.Location = new System.Drawing.Point(0, 0);
             this.chrPanelGrafico.Name = "chrPanelGrafico";
             this.chrPanelGrafico.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            series1.YValuesPerPoint = 4;
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series2";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series3";
-            this.chrPanelGrafico.Series.Add(series1);
-            this.chrPanelGrafico.Series.Add(series2);
-            this.chrPanelGrafico.Series.Add(series3);
-            this.chrPanelGrafico.Size = new System.Drawing.Size(514, 426);
+            this.chrPanelGrafico.Size = new System.Drawing.Size(517, 195);
             this.chrPanelGrafico.TabIndex = 0;
             this.chrPanelGrafico.Text = "chart1";
+            this.chrPanelGrafico.Click += new System.EventHandler(this.chrPanelGrafico_Click);
             // 
             // nudSeries
             // 
@@ -108,16 +93,16 @@
             this.lblNumSeries.TabIndex = 2;
             this.lblNumSeries.Text = "Numero de series";
             // 
-            // comboBox1
+            // cbxDimensiones
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbxDimensiones.FormattingEnabled = true;
+            this.cbxDimensiones.Items.AddRange(new object[] {
             "2D",
             "3D"});
-            this.comboBox1.Location = new System.Drawing.Point(667, 54);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 3;
+            this.cbxDimensiones.Location = new System.Drawing.Point(667, 54);
+            this.cbxDimensiones.Name = "cbxDimensiones";
+            this.cbxDimensiones.Size = new System.Drawing.Size(121, 24);
+            this.cbxDimensiones.TabIndex = 3;
             // 
             // label1
             // 
@@ -141,40 +126,49 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Estado de grafica";
             // 
-            // comboBox2
+            // cbxTipoGrafica
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "columna",
-            "barras",
-            "puntos",
-            "lineas",
-            "pastel"});
-            this.comboBox2.Location = new System.Drawing.Point(667, 84);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
-            this.comboBox2.TabIndex = 5;
+            this.cbxTipoGrafica.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cbxTipoGrafica.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.cbxTipoGrafica.FormattingEnabled = true;
+            this.cbxTipoGrafica.Items.AddRange(new object[] {
+            "Point",
+            "FastPoint",
+            "Bubble",
+            "Line",
+            "Spline",
+            "Bar",
+            "Column",
+            "SplineArea",
+            "Stock",
+            "FastLine"});
+            this.cbxTipoGrafica.Location = new System.Drawing.Point(667, 84);
+            this.cbxTipoGrafica.Name = "cbxTipoGrafica";
+            this.cbxTipoGrafica.Size = new System.Drawing.Size(121, 23);
+            this.cbxTipoGrafica.TabIndex = 5;
+            this.cbxTipoGrafica.ParentChanged += new System.EventHandler(this.cbxTipoGrafica_ParentChanged);
             // 
             // btnGraficar
             // 
-            this.btnGraficar.Location = new System.Drawing.Point(544, 124);
+            this.btnGraficar.Location = new System.Drawing.Point(544, 114);
             this.btnGraficar.Name = "btnGraficar";
             this.btnGraficar.Size = new System.Drawing.Size(244, 43);
             this.btnGraficar.TabIndex = 7;
             this.btnGraficar.Text = "Graficar";
             this.btnGraficar.UseVisualStyleBackColor = true;
+            this.btnGraficar.Click += new System.EventHandler(this.btnGraficar_Click);
             // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Purple;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(830, 195);
             this.Controls.Add(this.btnGraficar);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cbxTipoGrafica);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbxDimensiones);
             this.Controls.Add(this.lblNumSeries);
             this.Controls.Add(this.nudSeries);
             this.Controls.Add(this.chrPanelGrafico);
@@ -193,10 +187,10 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chrPanelGrafico;
         private System.Windows.Forms.NumericUpDown nudSeries;
         private System.Windows.Forms.Label lblNumSeries;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbxDimensiones;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbxTipoGrafica;
         private System.Windows.Forms.Button btnGraficar;
     }
 }
